@@ -15,6 +15,14 @@ public class ProblemaExemplo extends Problema {
             return new double[]{4, 3};
         } else if (vars[0] == 5) {
             return new double[]{5, 5};
+        } else if (vars[0] == 6) {
+            return new double[]{1, 5};
+        } else if (vars[0] == 7) {
+            return new double[]{1.5, 4};
+        } else if (vars[0] == 8) {
+            return new double[]{2, 3};
+        } else if (vars[0] == 9) {
+            return new double[]{4, 1};
         }
         return new double[0];
     }
