@@ -7,3 +7,7 @@
 /out/production/NSGA/problema/Problema.class
 /out/production/NSGA/problema/ProblemaExemplo.class
 /out/production/NSGA/problema/ProblemaShaffe.class
+/out/production/NSGA/individuo/IndividuoFactory.class
+/out/production/NSGA/individuo/IndividuoShafferFactory.class
+/out/production/NSGA/algoritmo/NSGA2.class
+/out/production/NSGA/util/QuickSort.class
