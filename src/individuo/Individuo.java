@@ -2,6 +2,7 @@ package individuo;
 
 import problema.Problema;
 
+
 public class Individuo {
     private double[] vars;
     private double[] objs;

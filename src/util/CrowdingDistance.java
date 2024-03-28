@@ -2,10 +2,10 @@ package util;
 
 import individuo.Individuo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CrowdingDistance {
+    private final QuickSort qs = new QuickSort();
     public void avaliar(List<Individuo> T) {
         int s = T.size();
         for (Individuo ind : T) {
@@ -14,7 +14,7 @@ public class CrowdingDistance {
         Individuo ind0 = T.getFirst();
         int M = ind0.getObjs().length;
         for (int m = 0; m < M; m++) {
-            sort(T, m);
+            qs.sort(T, m);
             T.getFirst().setD(Double.POSITIVE_INFINITY);
             T.getLast().setD(Double.POSITIVE_INFINITY);
             for (int i = 1; i < s - 1; i++) {
@@ -27,15 +27,5 @@ public class CrowdingDistance {
         System.out.println();
     }
 
-    private void sort(List<Individuo> T, int m) {
-        for (int i = 0; i < T.size() - 1; i++) {
-            for (int j = i + 1; j < T.size(); j++) {
-                if (T.get(i).getObjs()[m] > T.get(j).getObjs()[m]) {
-                    Individuo aux = T.get(i);
-                    T.set(i, T.get(j));
-                    T.set(i, aux);
-                }
-            }
-        }
-    }
+
 }

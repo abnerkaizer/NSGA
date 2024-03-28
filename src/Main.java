@@ -1,7 +1,7 @@
 import individuo.Individuo;
 import problema.ProblemaExemplo;
 import util.CrowdingDistance;
-import util.FNDS;
+//import util.FNDS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,5 +15,6 @@ public class Main {
         f.add(new Individuo(new ProblemaExemplo(), new double[]{9}));
         CrowdingDistance cd = new CrowdingDistance();
         cd.avaliar(f);
+        System.out.println();
     }
 }
