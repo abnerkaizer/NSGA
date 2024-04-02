@@ -15,6 +15,14 @@ public class Individuo {
         this.vars = vars;
     }
 
+    public double[] getVars() {
+        return vars;
+    }
+
+    public void setVars(double[] vars) {
+        this.vars = vars;
+    }
+
     public double[] getObjs() {
         if (objs == null) {
             objs = problema.avaliar(this.vars);

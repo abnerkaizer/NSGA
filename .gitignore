@@ -11,3 +11,6 @@
 /out/production/NSGA/individuo/IndividuoShafferFactory.class
 /out/production/NSGA/algoritmo/NSGA2.class
 /out/production/NSGA/util/QuickSort.class
+/out/production/NSGA/util/CrossOver.class
+/out/production/NSGA/util/Mutar.class
+/out/production/NSGA/util/RepairSolution.class
