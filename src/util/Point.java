@@ -4,17 +4,17 @@ import individuo.Individuo;
 
 import java.util.List;
 
-public class Ponto {
+public class Point {
     private double[] objs;
-    private List<Ponto> S;
-    private Ponto[] s;
+    private List<Point> S;
+    private Point[] s;
     private int n;
 
 
     private int rank;
     private Individuo ind;
 
-    public Ponto(Individuo ind) {
+    public Point(Individuo ind) {
         this.ind = ind;
         this.objs = ind.getObjs();
     }
@@ -23,7 +23,7 @@ public class Ponto {
         return ind;
     }
 
-    public List<Ponto> getS() {
+    public List<Point> getS() {
         return S;
     }
 
@@ -43,7 +43,7 @@ public class Ponto {
         this.objs = objs;
     }
 
-    public void setS(Ponto[] s) {
+    public void setS(Point[] s) {
         this.s = s;
     }
 
@@ -51,7 +51,7 @@ public class Ponto {
         this.ind = ind;
     }
 
-    public void setS(List<Ponto> s) {
+    public void setS(List<Point> s) {
         S = s;
     }
 

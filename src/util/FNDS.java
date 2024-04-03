@@ -7,25 +7,25 @@ import individuo.Individuo;
 
 public class FNDS {
     public List<List<Individuo>> execute(List<Individuo> indList) {
-        List<Ponto> P = new ArrayList<Ponto>(indList.size());
+        List<Point> P = new ArrayList<Point>(indList.size());
         for (int i = 0; i < indList.size(); i++) {
             Individuo ind = indList.get(i);
-            Ponto p = new Ponto(ind);
+            Point p = new Point(ind);
             P.add(p);
         }
         int n;
-        List<List<Ponto>> F = new ArrayList<List<Ponto>>();
-        List<Ponto> front1 = new ArrayList<Ponto>();
+        List<List<Point>> F = new ArrayList<List<Point>>();
+        List<Point> front1 = new ArrayList<Point>();
         //Parte 1
         for (int i = 0; i < P.size(); i++) {
-            Ponto p = P.get(i);
-            p.setS(new ArrayList<Ponto>());
+            Point p = P.get(i);
+            p.setS(new ArrayList<Point>());
             p.setN(0);
 
             for (int j = 0; j < P.size(); j++) {
 
                 if (i != j) {
-                    Ponto q = P.get(j);
+                    Point q = P.get(j);
                     if (domina(p, q)) {
                         p.getS().add(q);
                     } else if (domina(q, p)) {
@@ -44,12 +44,12 @@ public class FNDS {
         //Parte 2
 
         int i = 0;
-        List<Ponto> Fi = F.get(i);
+        List<Point> Fi = F.get(i);
         while (!Fi.isEmpty()) {
-            List<Ponto> Q = new ArrayList<Ponto>();
-            for (Ponto p : Fi) {
-                List<Ponto> Sp = p.getS();
-                for (Ponto q : Sp) {
+            List<Point> Q = new ArrayList<Point>();
+            for (Point p : Fi) {
+                List<Point> Sp = p.getS();
+                for (Point q : Sp) {
                     n = q.getN();
                     q.setN(--n);
                     if (q.getN() == 0) {
@@ -68,7 +68,7 @@ public class FNDS {
             if (!Fi.isEmpty()) {
                 List<Individuo> Find = new ArrayList<Individuo>();
                 for (int j = 0; j < Fi.size(); j++) {
-                    Ponto p = Fi.get(j);
+                    Point p = Fi.get(j);
                     Individuo ind = p.getInd();
                     Find.add(ind);
                 }
@@ -78,7 +78,7 @@ public class FNDS {
         return ret;
     }
 
-    public boolean domina(Ponto p1, Ponto p2) {
+    public boolean domina(Point p1, Point p2) {
         double[] obj1 = p1.getObjs();
         double[] obj2 = p2.getObjs();
         for (int i = 0; i < obj1.length; i++) {

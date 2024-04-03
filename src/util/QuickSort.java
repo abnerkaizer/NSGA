@@ -63,7 +63,7 @@ public class QuickSort {
         int i = low - 1;
 
         for (int j = low; j < high; j++) {
-            if (individuos.get(j).getD() < pivot.getD()) {
+            if (individuos.get(j).getD() > pivot.getD()) {
                 i++;
                 Collections.swap(individuos, i, j);
             }
