@@ -6,7 +6,7 @@ import problema.Problema;
 public class Individuo {
     private double[] vars;
     private double[] objs;
-    private Problema problema;
+    private final Problema problema;
     private double d;
 
 
@@ -24,10 +24,10 @@ public class Individuo {
     }
 
     public double[] getObjs() {
-        if (objs == null) {
-            objs = problema.avaliar(this.vars);
+        if (this.objs == null) {
+            this.objs = problema.avaliar(this.vars);
         }
-        return objs;
+        return this.objs;
     }
 
     public double getD() {
@@ -39,24 +39,24 @@ public class Individuo {
     }
 
     public String toString() {
-        String ret = "Individuo - vars[";
+        StringBuilder ret = new StringBuilder("Individuo - vars[");
         for (int i = 0; i < vars.length; i++) {
             if (i == vars.length - 1) {
-                ret += vars[i] + "]";
+                ret.append(vars[i]).append("]");
             } else {
-                ret += vars[i] + ",";
+                ret.append(vars[i]).append(",");
             }
         }
-        ret += " - obs [";
+        ret.append(" - obs [");
         for (int i = 0; i < objs.length; i++) {
             if (i == objs.length - 1) {
-                ret += objs[i] + "]";
+                ret.append(objs[i]).append("]");
             } else {
-                ret += objs[i] + ",";
+                ret.append(objs[i]).append(",");
             }
         }
-        ret = ret + " - d = " + d;
+        ret.append(" - d = ").append(d);
 
-        return ret;
+        return ret.toString();
     }
 }
