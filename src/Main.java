@@ -1,20 +1,15 @@
-import individuo.Individuo;
-import problema.ProblemaExemplo;
-import util.CrowdingDistance;
-//import util.FNDS;
-
-import java.util.ArrayList;
-import java.util.List;
+import algoritmo.NSGA2;
+import individuo.IndividuoFactory;
+import individuo.IndividuoShafferFactory;
 
 public class Main {
     public static void main(String[] args) {
-        List<Individuo> f = new ArrayList<Individuo>();
-        f.add(new Individuo(new ProblemaExemplo(), new double[]{6}));
-        f.add(new Individuo(new ProblemaExemplo(), new double[]{7}));
-        f.add(new Individuo(new ProblemaExemplo(), new double[]{8}));
-        f.add(new Individuo(new ProblemaExemplo(), new double[]{9}));
-        CrowdingDistance cd = new CrowdingDistance();
-        cd.avaliar(f);
-        System.out.println();
+        IndividuoFactory indFactory = new IndividuoShafferFactory();
+        NSGA2 nsga = new NSGA2(-50, 50);
+        double startTime = System.currentTimeMillis();
+        nsga.execute(indFactory, 20, 1000);
+        double endTime = System.currentTimeMillis();
+        double tempo = (endTime - startTime);
+        System.out.printf("Tempo: %d ms\n", (int) tempo);
     }
 }

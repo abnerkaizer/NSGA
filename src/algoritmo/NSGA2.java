@@ -2,7 +2,6 @@ package algoritmo;
 
 import individuo.Individuo;
 import individuo.IndividuoFactory;
-import individuo.IndividuoShafferFactory;
 import util.*;
 
 import java.util.ArrayList;
@@ -10,9 +9,14 @@ import java.util.List;
 import java.util.Random;
 
 public class NSGA2 {
-    private final static double lower = -10, upper = 10;
+    private final double lowerBound, upperBound;
 
-    public static void execute(IndividuoFactory indFactory, int nPop, int qtdEpocas) {
+    public NSGA2(double lowerBound, double upperBound) {
+        this.lowerBound = lowerBound;
+        this.upperBound = upperBound;
+    }
+
+    public void execute(IndividuoFactory indFactory, int nPop, int qtdEpocas) {
         List<Individuo> pop = new ArrayList<>(nPop);
         for (int i = 0; i < nPop; i++) {
             pop.add(indFactory.getIndividuo());
@@ -20,11 +24,9 @@ public class NSGA2 {
         int e = 1;
         QuickSort qs = new QuickSort();
         while (e <= qtdEpocas) {
-            List<Individuo> Q = new ArrayList<>(nPop);
-            makeOffspring(Q, pop, indFactory);
+            makeOffspring(pop, indFactory);
             List<Individuo> R = new ArrayList<>(nPop * 2);
             R.addAll(pop);
-            R.addAll(Q);
             FNDS fnds = new FNDS();
             List<List<Individuo>> F = fnds.execute(R);
             List<Individuo> popNew = new ArrayList<>(nPop);
@@ -44,7 +46,7 @@ public class NSGA2 {
                 }
             }
             pop = popNew;
-            if (e % 20 == 0 || e == 1) {
+            if (e % 10 == 0 || e == 1) {
                 System.out.println("Epoca = " + e);
                 imprimirPop(popNew);
                 System.out.println();
@@ -53,24 +55,23 @@ public class NSGA2 {
         }
     }
 
-    private static void imprimirPop(List<Individuo> popNew) {
-        for (int i = 0; i < popNew.size(); i++) {
-            Individuo ind = popNew.get(i);
+    private void imprimirPop(List<Individuo> popNew) {
+        for (Individuo ind : popNew) {
             System.out.print("(");
             double[] objs = ind.getObjs();
-            for (int j = 0; j < objs.length; j++) {
-                if (j == objs.length - 1) {
-                    System.out.printf("%f", objs[j]);
+            for (int i = 0; i < objs.length; i++) {
+                if (i == objs.length - 1) {
+                    System.out.printf("%f", objs[i]);
                     System.out.print(") ");
                 } else {
-                    System.out.printf("%f", objs[j]);
+                    System.out.printf("%f", objs[i]);
                     System.out.print(";");
                 }
             }
         }
     }
 
-    public static void makeOffspring(List<Individuo> q, List<Individuo> pop, IndividuoFactory indFactory) {
+    private void makeOffspring(List<Individuo> pop, IndividuoFactory indFactory) {
         Random rand = new Random();
         List<Individuo> popAux = new ArrayList<>(pop.size());
         popAux.addAll(pop);
@@ -82,14 +83,9 @@ public class NSGA2 {
             Individuo p1 = popAux.remove(i);
             i = rand.nextInt(popAux.size());
             Individuo p2 = popAux.remove(i);
-            children.addAll(co.crossoverBLXa(indFactory, p1, p2, lower, upper));
+            children.addAll(co.crossoverBLXa(indFactory, p1, p2, lowerBound, upperBound));
         }
-        m.mutate(children, lower, upper);
+        m.mutate(children, lowerBound, upperBound);
         pop.addAll(children);
-    }
-
-    public static void main(String[] args) {
-        IndividuoFactory indFactory = new IndividuoShafferFactory();
-        execute(indFactory, 20, 100);
     }
 }
