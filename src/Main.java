@@ -1,10 +1,10 @@
 import algoritmo.NSGA2;
 import individuo.IndividuoFactory;
-import individuo.IndividuoShafferFactory;
+import individuo.IndividuoShaffeFactory;
 
 public class Main {
     public static void main(String[] args) {
-        IndividuoFactory indFactory = new IndividuoShafferFactory();
+        IndividuoFactory indFactory = new IndividuoShaffeFactory();
         NSGA2 nsga = new NSGA2(-50, 50);
         double startTime = System.currentTimeMillis();
         nsga.execute(indFactory, 20, 1000);

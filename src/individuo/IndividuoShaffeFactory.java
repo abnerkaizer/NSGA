@@ -4,10 +4,10 @@ import problema.Problema;
 import problema.ProblemaShaffe;
 
 
-public class IndividuoShafferFactory implements IndividuoFactory {
+public class IndividuoShaffeFactory implements IndividuoFactory {
     private final Problema problema;
 
-    public IndividuoShafferFactory() {
+    public IndividuoShaffeFactory() {
         this.problema = new ProblemaShaffe();
     }
 
