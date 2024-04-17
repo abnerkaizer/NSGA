@@ -5,9 +5,8 @@ import individuo.Individuo;
 import java.util.List;
 
 public class Point {
-    private double[] objs;
+    private final double[] objs;
     private List<Point> S;
-    private Point[] s;
     private int n;
 
 
@@ -39,24 +38,8 @@ public class Point {
         return objs;
     }
 
-    public void setObjs(double[] objs) {
-        this.objs = objs;
-    }
-
-    public void setS(Point[] s) {
-        this.s = s;
-    }
-
-    public void setInd(Individuo ind) {
-        this.ind = ind;
-    }
-
     public void setS(List<Point> s) {
         S = s;
-    }
-
-    public int getRank() {
-        return rank;
     }
 
     public void setRank(int rank) {

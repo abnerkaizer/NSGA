@@ -1,10 +1,12 @@
 package problema;
 
+import org.jetbrains.annotations.NotNull;
+
 public class ProblemaShaffe extends Problema {
     private final int nVars = 2;
 
     @Override
-    public double[] avaliar(double[] vars) {
+    public double[] avaliar(double @NotNull [] vars) {
 
         double[] objs = new double[nVars];
         objs[0] = Math.pow(vars[0] - 1, 2) + Math.pow(vars[1], 2);

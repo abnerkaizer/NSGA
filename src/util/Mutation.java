@@ -1,12 +1,13 @@
 package util;
 
 import individuo.Individuo;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Random;
 
 public class Mutation {
-    public void mutate(List<Individuo> children, double lower, double upper) {
+    public void mutate(@NotNull List<Individuo> children, double lower, double upper) {
         Random rand = new Random();
         boolean mutated = false;
         double[] aux;
