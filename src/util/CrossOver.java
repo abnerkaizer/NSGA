@@ -2,14 +2,12 @@ package util;
 
 import individuo.Individuo;
 import individuo.IndividuoFactory;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class CrossOver {
-    public List<Individuo> crossoverBLXa(@NotNull IndividuoFactory indFactory, @NotNull Individuo p1, Individuo p2, double lower, double upper) {
+    public List<Individuo> crossoverBLXa(IndividuoFactory indFactory,Individuo p1, Individuo p2, double lower, double upper) {
         List<Individuo> children = new ArrayList<>(2);
         Random rand = new Random();
         children.add(indFactory.getIndividuo());

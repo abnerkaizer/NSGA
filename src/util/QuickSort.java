@@ -1,14 +1,12 @@
 package util;
 
 import individuo.Individuo;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
 public class QuickSort {
-    public void sort(@NotNull List<Individuo> individuos, int m) {
+    public void sort(List<Individuo> individuos, int m) {
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
         stack.push(individuos.size() - 1);
@@ -27,7 +25,7 @@ public class QuickSort {
         }
     }
 
-    private int partition(@NotNull List<Individuo> individuos, int low, int high, int m) {
+    private int partition(List<Individuo> individuos, int low, int high, int m) {
         Individuo pivot = individuos.get(high);
         int i = low - 1;
 
@@ -41,7 +39,7 @@ public class QuickSort {
         Collections.swap(individuos, i + 1, high);
         return i + 1;
     }
-    public void sort(@NotNull List<Individuo> individuos) {
+    public void sort(List<Individuo> individuos) {
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
         stack.push(individuos.size() - 1);
@@ -60,7 +58,7 @@ public class QuickSort {
         }
     }
 
-    private int partition(@NotNull List<Individuo> individuos, int low, int high) {
+    private int partition(List<Individuo> individuos, int low, int high) {
         Individuo pivot = individuos.get(high);
         int i = low - 1;
 

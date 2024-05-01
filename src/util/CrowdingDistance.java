@@ -1,14 +1,12 @@
 package util;
 
 import individuo.Individuo;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 public class CrowdingDistance {
     private final QuickSort qs = new QuickSort();
 
-    public void avaliar(@NotNull List<Individuo> individuos) {
+    public void avaliar(List<Individuo> individuos) {
         int s = individuos.size();
         for (Individuo ind : individuos) {
             ind.setD(0);

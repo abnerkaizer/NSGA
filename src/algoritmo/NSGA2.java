@@ -2,7 +2,6 @@ package algoritmo;
 
 import individuo.Individuo;
 import individuo.IndividuoFactory;
-import org.jetbrains.annotations.NotNull;
 import util.*;
 
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ public class NSGA2 {
         }
     }
 
-    private void imprimirPop(@NotNull List<Individuo> popNew) {
+    private void imprimirPop(List<Individuo> popNew) {
         for (Individuo ind : popNew) {
             System.out.print("(");
             double[] objs = ind.getObjs();

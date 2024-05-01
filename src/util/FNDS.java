@@ -2,12 +2,10 @@ package util;
 
 import java.util.List;
 import java.util.ArrayList;
-
 import individuo.Individuo;
-import org.jetbrains.annotations.NotNull;
 
 public class FNDS {
-    public List<List<Individuo>> execute(@NotNull List<Individuo> indList) {
+    public List<List<Individuo>> execute(List<Individuo> indList) {
         List<Point> P = new ArrayList<Point>(indList.size());
         for (int i = 0; i < indList.size(); i++) {
             Individuo ind = indList.get(i);
