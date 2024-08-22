@@ -46,7 +46,7 @@ public class NSGA2 {
                 }
             }
             pop = popNew;
-            if (e == 1||e==10||e==50||e==100||e==1000) {
+            if (e == 1||e==20||e==40||e==60||e==80||e==100||e==1000||e==10000||e==100000||e==1000000) {
                 System.out.println("Epoca = " + e);
                 imprimirPop(popNew);
                 System.out.println();
